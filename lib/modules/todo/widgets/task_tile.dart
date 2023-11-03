@@ -1,13 +1,19 @@
+// ignore_for_file: prefer_if_elements_to_conditional_expressions
+
+import 'package:awesome_todo/app/models/task_model.dart';
 import 'package:awesome_todo/app/utils/app_colors.dart';
-import 'package:awesome_todo/modules/todo/screens/todo_home_view.dart';
+import 'package:awesome_todo/modules/todo/screens/todo_edit_view.dart';
 import 'package:awesome_todo/modules/todo/widgets/checked_icon.dart';
+import 'package:awesome_todo/modules/todo/widgets/unchecked_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TaskTile extends StatelessWidget {
   const TaskTile({
+    required this.task,
     super.key,
   });
+  final Task task;
 
   @override
   Widget build(BuildContext context) {
@@ -32,31 +38,48 @@ class TaskTile extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const CheckedIcon(),
+          task.isCompleted
+              ? CheckedIcon(
+                  onTap: () {
+                    // TODO Implement this
+                  },
+                )
+              : UncheckedIcon(
+                  onTap: () {},
+                ),
           const SizedBox(width: 17),
           Text(
-            'Training at the Gym',
+            task.title,
             style: TextStyle(
-              color: AppColors.disabledColor,
+              color: task.isCompleted ? AppColors.disabledColor : AppColors.darkBlue,
               fontSize: 16.sp,
               fontWeight: FontWeight.w500,
-              decoration: TextDecoration.lineThrough,
+              decoration: task.isCompleted ? TextDecoration.lineThrough : null,
             ),
           ),
           const Spacer(),
-          Container(
-            padding: const EdgeInsets.all(13),
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.darkBlue),
-              borderRadius: BorderRadius.circular(4.r),
-            ),
-            child: Center(
-              child: Text(
-                'Edit',
-                style: TextStyle(
-                  color: AppColors.darkBlue,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (context) => TodoEditView(task: task),
+                ),
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.all(13),
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.darkBlue),
+                borderRadius: BorderRadius.circular(4.r),
+              ),
+              child: Center(
+                child: Text(
+                  'Edit',
+                  style: TextStyle(
+                    color: AppColors.darkBlue,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),

@@ -1,8 +1,8 @@
 import 'package:awesome_todo/app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class CheckedIcon extends StatelessWidget {
-  const CheckedIcon({
+class UncheckedIcon extends StatelessWidget {
+  const UncheckedIcon({
     required this.onTap,
     super.key,
   });
@@ -17,15 +17,8 @@ class CheckedIcon extends StatelessWidget {
         width: 32,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: AppColors.green,
           border: Border.all(
-            color: AppColors.greenBorder,
-          ),
-        ),
-        child: const Center(
-          child: Icon(
-            Icons.check,
-            color: AppColors.greenBorder,
+            color: AppColors.darkBlue,
           ),
         ),
       ),

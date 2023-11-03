@@ -30,11 +30,14 @@ class $AssetsImagesPngsGen {
 class $AssetsImagesSvgsGen {
   const $AssetsImagesSvgsGen();
 
+  /// File path: assets/images/svgs/back.svg
+  String get back => 'assets/images/svgs/back.svg';
+
   /// File path: assets/images/svgs/trophy.svg
   String get trophy => 'assets/images/svgs/trophy.svg';
 
   /// List of all assets
-  List<String> get values => [trophy];
+  List<String> get values => [back, trophy];
 }
 
 class Assets {
