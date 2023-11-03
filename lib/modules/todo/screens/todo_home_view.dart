@@ -1,8 +1,7 @@
 import 'package:awesome_todo/app/models/task_model.dart';
-import 'package:awesome_todo/app/utils/app_colors.dart';
 import 'package:awesome_todo/app/utils/global_vars.dart';
+import 'package:awesome_todo/modules/todo/screens/todo_add_view.dart';
 import 'package:awesome_todo/modules/todo/widgets/custom_fab.dart';
-import 'package:awesome_todo/modules/todo/widgets/double_text.dart';
 import 'package:awesome_todo/modules/todo/widgets/home_middle.dart';
 import 'package:awesome_todo/modules/todo/widgets/home_top.dart';
 import 'package:awesome_todo/modules/todo/widgets/task_tile.dart';
@@ -33,7 +32,13 @@ class TodoHomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: CustomFab(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (context) => const TodoAddView(),
+            ),
+          );
+        },
       ),
       body: SafeArea(
         child: SizedBox(
