@@ -25,7 +25,7 @@ class TaskTile extends StatelessWidget {
         vertical: 23,
       ),
       decoration: BoxDecoration(
-        color: AppColors.whiteBg,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(6.r),
         border: Border.all(
           color: AppColors.tileBg,

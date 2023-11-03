@@ -9,6 +9,7 @@ import 'package:awesome_todo/modules/todo/widgets/home_top.dart';
 import 'package:awesome_todo/modules/todo/widgets/task_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TodoHomeView extends StatefulWidget {
   const TodoHomeView({super.key});
@@ -27,6 +28,7 @@ class _TodoHomeViewState extends State<TodoHomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       floatingActionButton: CustomFab(
         onTap: () {
           Navigator.of(context).push(
@@ -53,8 +55,7 @@ class _TodoHomeViewState extends State<TodoHomeView> {
                 child: Column(
                   children: [
                     const HomeTop(),
-                    const HomeMiddle(), // TODO Make this widget identical to the design
-                    const SizedBox(height: 20),
+                    const HomeMiddle(),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -63,7 +64,10 @@ class _TodoHomeViewState extends State<TodoHomeView> {
                           shrinkWrap: true,
                           itemBuilder: (BuildContext context, int index) {
                             return Padding(
-                              padding: const EdgeInsets.only(bottom: 24),
+                              padding: EdgeInsets.only(
+                                top: index == 0 ? 20.sp : 0,
+                                bottom: index == state.tasks.length - 1 ? 100.sp : 24.sp,
+                              ),
                               child: TaskTile(
                                 task: state.tasks[index],
                                 onCheckTap: () {
