@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:awesome_todo/app/utils/global_vars.dart';
 import 'package:awesome_todo/modules/todo/bloc/todo_bloc.dart';
 import 'package:awesome_todo/modules/todo/screens/todo_add_view.dart';
@@ -64,6 +66,15 @@ class _TodoHomeViewState extends State<TodoHomeView> {
                               padding: const EdgeInsets.only(bottom: 24),
                               child: TaskTile(
                                 task: state.tasks[index],
+                                onCheckTap: () {
+                                  context.read<TodoBloc>().add(
+                                        TodoEditEvent(
+                                          state.tasks[index].copyWith(
+                                            isCompleted: !state.tasks[index].isCompleted,
+                                          ),
+                                        ),
+                                      );
+                                },
                               ),
                             );
                           },

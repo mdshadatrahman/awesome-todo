@@ -11,9 +11,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class TaskTile extends StatelessWidget {
   const TaskTile({
     required this.task,
+    required this.onCheckTap,
     super.key,
   });
   final Task task;
+  final VoidCallback onCheckTap;
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +42,10 @@ class TaskTile extends StatelessWidget {
         children: [
           task.isCompleted
               ? CheckedIcon(
-                  onTap: () {
-                    // TODO Implement this
-                  },
+                  onTap: onCheckTap,
                 )
               : UncheckedIcon(
-                  onTap: () {},
+                  onTap: onCheckTap,
                 ),
           const SizedBox(width: 17),
           Text(
