@@ -17,11 +17,11 @@ class CustomFab extends StatelessWidget {
         height: 61,
         width: 60,
         decoration: BoxDecoration(
-          color: AppColors.primary.withOpacity(0.9),
+          color: AppColors.primary,
           borderRadius: BorderRadius.circular(30),
           border: Border.all(
             strokeAlign: BorderSide.strokeAlignOutside,
-            color: AppColors.primary,
+            color: AppColors.darkBlue.withOpacity(0.8),
             width: 2,
           ),
           boxShadow: [

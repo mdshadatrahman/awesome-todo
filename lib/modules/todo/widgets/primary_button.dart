@@ -22,10 +22,10 @@ class PrimaryButton extends StatelessWidget {
         width: width,
         padding: EdgeInsets.symmetric(horizontal: 20.sp),
         decoration: BoxDecoration(
-          color: AppColors.primary.withOpacity(0.9),
+          color: AppColors.primary,
           border: Border.all(
-            color: AppColors.primary,
-            width: 3,
+            color: AppColors.darkBlue.withOpacity(0.9),
+            width: 2,
             strokeAlign: BorderSide.strokeAlignOutside,
           ),
           borderRadius: BorderRadius.circular(6.r),
