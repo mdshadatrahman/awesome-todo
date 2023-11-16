@@ -18,7 +18,7 @@ dependencies:
   flutter_svg: ^2.0.9
   google_fonts: ^6.1.0
   intl: ^0.18.0
-  meta: ^1.9.1
+  meta: ^1.10.0
 
 dev_dependencies:
   bloc_test: ^9.1.4
